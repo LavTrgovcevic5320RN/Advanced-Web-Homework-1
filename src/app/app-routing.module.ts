@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ConfigurationComponent} from "./components/configuration/configuration.component";
 import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
+import {TextSimilarityComponent} from "./components/text-similarity/text-similarity.component";
 import {TokenGuard} from "./token.guard";
 
 const routes: Routes = [
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: "entity-extraction",
     component: EntityExtractionComponent,
+    canActivate: [TokenGuard],
+  },
+  {
+    path: "text-similarity",
+    component: TextSimilarityComponent,
     canActivate: [TokenGuard],
   }
 ];
