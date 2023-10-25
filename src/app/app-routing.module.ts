@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ConfigurationComponent} from "./components/configuration/configuration.component";
 import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
 import {TextSimilarityComponent} from "./components/text-similarity/text-similarity.component";
+import {LanguageDetectionComponent} from "./components/language-detection/language-detection.component";
 import {TokenGuard} from "./token.guard";
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: "text-similarity",
     component: TextSimilarityComponent,
+    canActivate: [TokenGuard],
+  },
+  {
+    path: "language-detection",
+    component: LanguageDetectionComponent,
     canActivate: [TokenGuard],
   }
 ];
