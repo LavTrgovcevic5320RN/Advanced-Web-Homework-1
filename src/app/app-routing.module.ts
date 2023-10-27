@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ConfigurationComponent} from "./components/configuration/configuration.component";
-import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
-import {TextSimilarityComponent} from "./components/text-similarity/text-similarity.component";
-import {LanguageDetectionComponent} from "./components/language-detection/language-detection.component";
+import { ConfigurationComponent } from './components/configuration/configuration.component';
+import { EntityExtractionComponent } from './components/entity-extraction/entity-extraction.component';
+import { TextSimilarityComponent } from './components/text-similarity/text-similarity.component';
+import { LanguageDetectionComponent } from './components/language-detection/language-detection.component';
+import { SentimentAnalysisComponent } from './components/sentiment-analysis/sentiment-analysis.component';
+import { HistoryComponent } from './components/history/history.component'
 import {TokenGuard} from "./token.guard";
 
 const routes: Routes = [
@@ -29,6 +31,16 @@ const routes: Routes = [
   {
     path: "language-detection",
     component: LanguageDetectionComponent,
+    canActivate: [TokenGuard],
+  },
+  {
+    path: "sentiment-analysis",
+    component: SentimentAnalysisComponent,
+    canActivate: [TokenGuard],
+  },
+  {
+    path: "history",
+    component: HistoryComponent,
     canActivate: [TokenGuard],
   }
 ];

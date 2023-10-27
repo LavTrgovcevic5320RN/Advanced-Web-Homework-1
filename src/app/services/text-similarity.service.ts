@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TextSimilarity} from "../models/text-similarity";
 import {environment} from "../environments/environment";
+import { HistoryService } from "../services/history.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,12 @@ export class TextSimilarityService {
 
   private readonly textSimilarityAPI = environment.textSimilarityApi;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private historyService: HistoryService) { }
 
   getTextSimilarity(text1: string, text2: string): Observable<TextSimilarity> {
     let url: string = this.textSimilarityAPI + "/?text1=" + text1 + "&text2=" + text2 + "&token=" + localStorage.getItem("token");
 
+    this.historyService.addHistory(url, new Date());
     return this.httpClient.get<TextSimilarity>(url);
   }
 }
