@@ -9,7 +9,7 @@
 
   <div *ngFor="let historyItem of getHistory()" class="row">
     <div class="col-md-12">
-      <h6>{{ '[ ' + (historyItem.getDate() | date: 'd.M.yyy. , h:mm a') + ' ]  ' + '  GET  ' + historyItem.getUrl() }}</h6>
+      <h6>{{ '[ ' + (historyItem.getDate() | date: 'd.M.yyy. , h:mm:ss') + ' ]  ' + '  GET  ' + historyItem.getUrl() }}</h6>
     </div>
   </div>
 
